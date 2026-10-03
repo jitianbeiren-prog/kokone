@@ -101,6 +101,7 @@
         <select class="themeSel" aria-label="おまかせのテーマ" title="おまかせのテーマ（選ぶと、その方向の中でおまかせします。必要な部品のスイッチもオンになります）"><option value="">テーマなし</option><option value="lyricpv">文字PV</option><option value="kinetic">キネティック</option><option value="wa">和風</option><option value="horror">ホラー</option><option value="pop">ポップ</option><option value="ballad">バラード</option></select>
         <button id="btnOmakase" class="primary" title="スタイル・雰囲気・演出・配色をまるごとランダムに（キー R）">おまかせ</button>
       </div>
+      <p class="shorts-note">出力：<b>縦 1080×1920（9:16）</b>　YouTube ショート用<br>ショートは 3 分以内。長い曲は書き出し範囲を絞ってください</p>
       <div class="tl-bar">
         <span class="tl-hint muted">行の区切り（上の目盛り）はドラッグで動かせます。<span class="kbd">Shift</span> で拍に吸着しない</span>
         <span class="tl-btns">
@@ -161,8 +162,8 @@
         <div class="easy-sec">
           <h3>書き出し</h3>
           <div class="fields">
-            <label class="field">画面比<select id="eAspect"><option value="16:9">16:9</option><option value="9:16">9:16 縦</option><option value="4:3">4:3</option><option value="3:4">3:4 縦</option><option value="1:1">1:1</option><option value="4:5">4:5 縦</option><option value="21:9">21:9</option></select></label>
-            <label class="field">解像度<select id="eRes"><option value="720">720p</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">4K</option></select></label>
+            <label class="field">画面比<select id="eAspect" disabled title="YouTube ショート用に縦 9:16 で固定しています"><option value="9:16">9:16 縦（ショート）</option></select></label>
+            <label class="field">解像度<select id="eRes"><option value="720">720×1280（下書き）</option><option value="1080">1080×1920（推奨）</option><option value="1440">1440×2560</option><option value="2160">2160×3840（4K）</option></select></label>
             <label class="field">fps<select id="eFps"><option>24</option><option>30</option><option>60</option></select></label>
             <label class="field field-wide">背景<select id="eKey"><option value="off">通常（スタイルの背景）</option><option value="green">グリーンバック（合成用）</option><option value="black">ブラックバック（合成用）</option></select></label>
           </div>
@@ -244,8 +245,8 @@
 
       <div class="tabpane" data-pane="out" hidden>
         <div class="fields">
-          <label class="field">画面比<select id="outAspect"><option value="16:9">16:9</option><option value="9:16">9:16 縦</option><option value="4:3">4:3</option><option value="3:4">3:4 縦</option><option value="1:1">1:1</option><option value="4:5">4:5 縦</option><option value="21:9">21:9</option></select></label>
-          <label class="field">解像度<select id="outRes"><option value="720">720p</option><option value="1080">1080p</option><option value="1440">1440p</option><option value="2160">4K</option></select></label>
+          <label class="field">画面比<select id="outAspect" disabled title="YouTube ショート用に縦 9:16 で固定しています"><option value="9:16">9:16 縦（ショート）</option></select></label>
+          <label class="field">解像度<select id="outRes"><option value="720">720×1280（下書き）</option><option value="1080">1080×1920（推奨）</option><option value="1440">1440×2560</option><option value="2160">2160×3840（4K）</option></select></label>
           <label class="field">fps<select id="outFps"><option>24</option><option>30</option><option>60</option></select></label>
           <label class="field">画質<select id="outQuality"><option value="standard">標準</option><option value="high">高</option><option value="max">最高</option></select></label>
           <label class="field field-wide">背景<select id="outKey"><option value="off">通常（スタイルの背景）</option><option value="green">グリーンバック（合成用）</option><option value="black">ブラックバック（合成用）</option></select></label>

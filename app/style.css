@@ -437,3 +437,28 @@ button.small.primary { padding: 4px 12px; }
 #app.is-easy .ln .cut-pair { display: none; }
 .outbtns.out-png { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); margin-top: 8px; }
 .outbtns.out-png button { padding: 8px 10px; font-size: 12px; }
+
+/* ---------- kokone: 縦 9:16（YouTube ショート）向けのプレビュー配置 ----------
+   広い画面では、プレビュー欄を「左＝縦長のプレビュー（高さいっぱい）／右＝再生操作・カット情報／下＝タイムライン」に並べる。
+   プレビューの幅は、欄の高さからタイムライン分を引いた高さ × 9/16（.work をサイズのコンテナにして cqh で求める）。 */
+@media (min-width: 1181px) and (min-height: 620px) {
+  html.fixed-ok .work { container-type: size; }
+  html.fixed-ok .col-stage {
+    display: grid; align-content: stretch; column-gap: 16px; row-gap: 10px;
+    grid-template-columns: min(calc((100cqh - 190px) * 9 / 16), 58%) minmax(0, 1fr);
+    grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+  }
+  html.fixed-ok .viewport { grid-column: 1; grid-row: 1 / 5; min-height: 0; place-items: start center; }
+  html.fixed-ok .transport { grid-column: 2; grid-row: 1; align-content: flex-start; }
+  html.fixed-ok .cutinfo { grid-column: 2; grid-row: 2; align-content: flex-start; }
+  html.fixed-ok .cut-pick { grid-column: 2; grid-row: 3 / 5; max-height: none; min-height: 0; }
+  html.fixed-ok .tl-bar { grid-column: 1 / -1; grid-row: 5; margin: 0; }
+  html.fixed-ok #timeline { grid-column: 1 / -1; grid-row: 6; }
+  html.fixed-ok .shorts-note { grid-column: 2; grid-row: 4; align-self: end; }
+}
+/* 縦の映像は横長の枠の左右が空くので、枠は透明にして映像の外周だけ線を引く */
+.viewport { background: transparent; border: 0; }
+.viewport canvas { outline: 1px solid var(--line); }
+#app.is-mobile .shorts-note { display: none; }
+.shorts-note { margin: 0; font-size: 11px; line-height: 1.7; color: var(--muted); }
+.shorts-note b { color: var(--text); font-weight: 500; }
